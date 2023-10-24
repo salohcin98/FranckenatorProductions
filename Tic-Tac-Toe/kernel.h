@@ -8,7 +8,7 @@
 #define VGA_ADDRESS 0xB8000
 #define BUFSIZE 2200
 
-uint16* vga_buffer;
+extern uint16* vga_buffer;
 extern uint32 vga_index;
 
 enum vga_color {
