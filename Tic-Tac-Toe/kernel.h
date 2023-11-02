@@ -11,6 +11,11 @@
 extern uint16* vga_buffer;
 extern uint32 vga_index;
 
+#define PERIPHERAL_BASE_ADDRESS 0x20000000
+#define GPIO_REGISTERS ((volatile unsigned int *)PERIPHERAL_BASE_ADDRESS)
+
+
+
 enum vga_color {
     BLACK,
     BLUE,

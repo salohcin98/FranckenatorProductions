@@ -96,16 +96,27 @@ void print_int(int num)
   print_string(str_num);
 }
 
+/* x86 Architecture
 uint8 inb(uint16 port)
 {
   uint8 ret;
   asm volatile("inb %1, %0" : "=a"(ret) : "d"(port));
   return ret;
 }
-
 void outb(uint16 port, uint8 data)
 {
   asm volatile("outb %0, %1" : "=a"(data) : "d"(port));
+}
+*/
+
+
+uint8 inb(uint16 port) {
+    return (uint8)GPIO_REGISTERS[port];
+}
+
+// ARM function for writing to an I/O register
+void outb(uint16 port, uint8 data) {
+    GPIO_REGISTERS[port] = data;
 }
 
 byte get_input_keycode()
