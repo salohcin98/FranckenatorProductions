@@ -7,21 +7,21 @@
     .word - (MAGIC + FLAGS)
 
 stackBottom:
-    .space 4096  @ Allocate 4096 bytes for the stack
+    .space 4096  
 
 stackTop:
 
     .section .text
     .global _start
     _start:
-        ldr sp, =stackTop  @ Set stack pointer to stackTop
+        ldr sp, =stackTop  
 
-        bl kernel_entry    @ Call kernel_entry function
+        bl kernel_entry   
 
-        cpsid i            @ Disable interrupts
+        cpsid i            
 
     hltLoop:
-        wfi                @ Wait for interrupt (halt in ARM)
-        b hltLoop          @ Infinite loop
+        wfi              
+        b hltLoop          
 
     .size _start, . - _start
