@@ -1,6 +1,6 @@
     .equ FLAGS, 0
     .equ MAGIC, 0x1BADB002
-    .global _start
+
     .section .multiboot
     .word MAGIC
     .word FLAGS
