@@ -11,7 +11,7 @@ arm-linux-gnueabi-gcc -c box.c -o box.o -std=gnu99 -ffreestanding -O1 -Wall -Wex
 arm-linux-gnueabi-gcc -c tic_tac_toe.c -o tic_tac_toe.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
 
 # Link the object files for ARM architecture
-arm-linux-gnueabi-ld -T linker.ld boot.o kernel.o utils.o box.o tic_tac_toe.o -o TicTacToe.elf
+arm-linux-gnueabi-ld -T linker.ld boot.o kernel.o utils.o box.o tic_tac_toe.o -o TicTacToe.elf -z noexecstack
 
 # Check TicTacToe.elf file here if required for the specific ARM format
 

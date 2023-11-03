@@ -5,7 +5,8 @@
     .word MAGIC
     .word FLAGS
     .word - (MAGIC + FLAGS)
-
+    
+.section .stack
 stackBottom:
     .space 4096  
 
