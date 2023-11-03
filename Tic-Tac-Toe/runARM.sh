@@ -1,5 +1,5 @@
 # Assemble ARM boot.s file
-as boot.s -o boot.o
+arm-linux-gnueabi-as boot.s -o boot.o
 
 # Compile ARM kernel.c file
 arm-linux-gnueabi-gcc -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
