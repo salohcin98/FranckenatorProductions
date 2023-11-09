@@ -25,4 +25,5 @@ cp grub.cfg isodir/boot/grub/grub.cfg
 grub-mkrescue -o TicTacToe.iso isodir
 
 # Run it in QEMU for ARM (adjust the command according to your system and architecture)
-qemu-system-arm -M versatilepb -m 128M -nographic -no-reboot -serial /dev/null -monitor telnet:127.0.0.1:1235,server -kernel TicTacToe.bin
+# qemu-system-arm -M versatilepb -m 128M -nographic -no-reboot -serial /dev/null -monitor telnet:127.0.0.1:1235,server -kernel TicTacToe.bin
+qemu-system-arm -M versatilepb -m 256M -nographic -no-reboot -serial /dev/null -kernel TicTacToe.bin
