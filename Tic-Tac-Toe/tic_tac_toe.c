@@ -22,53 +22,59 @@ uint8 player_2_cell_color = BRIGHT_BLUE;
 
 bool error = FALSE;
 
+
+
+
+void draw_X(uint16 x, uint16 y, uint8 color)
+{
+  // Draw two diagonal lines to form an 'X'
+  for(int i = 0; i < 6; i++){
+    vga_index = 80*(y+i);
+    vga_index += x+i;
+    vga_buffer[vga_index] = get_box_draw_char('X', 0, color);
+    vga_index = 80*(y+i);
+    vga_index += x+5-i;
+    vga_buffer[vga_index] = get_box_draw_char('X', 0, color);
+  }
+}
+
+void draw_O(uint16 x, uint16 y, uint8 color)
+{
+  // Draw a circle to form an 'O'
+  for(int i = 0; i < 5; i++){
+    if(i == 0 || i == 4){
+      for(int j = 1; j < 4; j++){
+        vga_index = 80*(y+i);
+        vga_index += x+j;
+        vga_buffer[vga_index] = get_box_draw_char('O', 0, color);
+      }
+    }else{
+      vga_index = 80*(y+i);
+      vga_index += x;
+      vga_buffer[vga_index] = get_box_draw_char('O', 0, color);
+      vga_index = 80*(y+i);
+      vga_index += x+4;
+      vga_buffer[vga_index] = get_box_draw_char('O', 0, color);
+    }
+  }
+}
+
+
 void update_cells()
 {
-  if(grid[0][0] == PLAYER_1){
-    fill_box(NULL, 30, 2, 10, 5, player_1_cell_color);
-  }else if(grid[0][0] == PLAYER_2){
-    fill_box(NULL, 30, 2, 10, 5, player_2_cell_color);
+  if(error == FALSE) { 
+  for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 3; j++){
+      uint16 x = 30 + j*13;
+      uint16 y = 2 + i*7;
+      if(grid[i][j] == PLAYER_1){
+        draw_X(x, y, player_1_cell_color);
+      }else if(grid[i][j] == PLAYER_2){
+        draw_O(x, y, player_2_cell_color);
+      }
+    }
   }
-  if(grid[0][1] == PLAYER_1){
-    fill_box(NULL, 43, 2, 10, 5, player_1_cell_color);
-  }else if(grid[0][1] == PLAYER_2){
-    fill_box(NULL, 43, 2, 10, 5, player_2_cell_color);
-  }
-  if(grid[0][2] == PLAYER_1){
-    fill_box(NULL, 56, 2, 10, 5, player_1_cell_color);
-  }else if(grid[0][2] == PLAYER_2){
-    fill_box(NULL, 56, 2, 10, 5, player_2_cell_color);
-  }
-  if(grid[1][0] == PLAYER_1){
-    fill_box(NULL, 30, 9, 10, 5, player_1_cell_color);
-  }else if(grid[1][0] == PLAYER_2){
-    fill_box(NULL, 30, 9, 10, 5, player_2_cell_color);
-  }
-  if(grid[1][1] == PLAYER_1){
-    fill_box(NULL, 43, 9, 10, 5, player_1_cell_color);
-  }else if(grid[1][1] == PLAYER_2){
-    fill_box(NULL, 43, 9, 10, 5, player_2_cell_color);
-  }
-  if(grid[1][2] == PLAYER_1){
-    fill_box(NULL, 56, 9, 10, 5, player_1_cell_color);
-  }else if(grid[1][2] == PLAYER_2){
-    fill_box(NULL, 56, 9, 10, 5, player_2_cell_color);
-  }
-  if(grid[2][0] == PLAYER_1){
-    fill_box(NULL, 30, 16, 10, 5, player_1_cell_color);
-  }else if(grid[2][0] == PLAYER_2){
-    fill_box(NULL, 30, 16, 10, 5, player_2_cell_color);
-  }
-  if(grid[2][1] == PLAYER_1){
-    fill_box(NULL, 43, 16, 10, 5, player_1_cell_color);
-  }else if(grid[2][1] == PLAYER_2){
-    fill_box(NULL, 43, 16, 10, 5, player_2_cell_color);
-  }
-  if(grid[2][2] == PLAYER_1){
-    fill_box(NULL, 56, 16, 10, 5, player_1_cell_color);
-  }else if(grid[2][2] == PLAYER_2){
-    fill_box(NULL, 56, 16, 10, 5, player_2_cell_color);
-  }
+ }
 }
 
 
@@ -88,10 +94,11 @@ void draw_game_board()
   draw_box(BOX_SINGLELINE, 28, 15, 12, 6, WHITE, BLACK);
   draw_box(BOX_SINGLELINE, 41, 15, 12, 6, WHITE, BLACK);
   draw_box(BOX_SINGLELINE, 54, 15, 12, 6, WHITE, BLACK);
-
+  
   update_cells();
   
-  fill_box(NULL, grid_inner_box_x, grid_inner_box_y, 10, 5, WHITE);
+  // The selector?
+  fill_box(NULL, grid_inner_box_x, grid_inner_box_y, 10, 5, CYAN);
 
   draw_box(BOX_SINGLELINE, 0, 2, 18, 3, GREY, BLACK);
 
@@ -253,8 +260,10 @@ void launch_game()
         break;
 
       case KEY_SPACE :
-        if(grid[row][col] > 0)
+        if(grid[row][col] > 0) {
           error = TRUE;
+          break;
+          }
 
         if(turn == PLAYER_1){
           grid[row][col] = PLAYER_1;
@@ -291,7 +300,6 @@ void launch_game()
     sleep(0x02FFFFFF);
   }while(keycode > 0);
 }
-
 
 
 
