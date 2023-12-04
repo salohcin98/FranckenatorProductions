@@ -1,6 +1,6 @@
 # Tic-Tac-Toe Kernel Conversion for Raspberry Pi 3
 
-This GitHub repository is dedicated to the conversion of a Tic-Tac-Toe kernel originally built for x86 architecture to run on the ARM architecture, specifically for the Raspberry Pi 3 platform. 
+This GitHub repository is dedicated to the conversion of a Tic-Tac-Toe kernel specifically for the Raspberry Pi 3 ARM architecture. 
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -15,7 +15,7 @@ Tic-Tac-Toe is a classic game enjoyed by people of all ages. This project aims t
 
 ## Project Goal
 
-The primary goal of this project is to take an x86-based Tic-Tac-Toe kernel and make it compatible with the ARM architecture. By doing this, we will enable the game to run smoothly on the Raspberry Pi 3, which is widely used for educational, hobbyist, and embedded computing projects. This conversion will allow enthusiasts and developers to enjoy playing Tic-Tac-Toe on their Raspberry Pi 3 devices.
+The primary goal of this project is to build an rasberry pi kernel and make it compatible with the pi's ARM architecture. By doing this, we will enable the game to run smoothly on the Raspberry Pi 3, which is widely used for educational, hobbyist, and embedded computing projects. This conversion will allow enthusiasts and developers to enjoy playing Tic-Tac-Toe on their Raspberry Pi 3 devices but showcases how difficult it can be to implement your own kernel.
 
 ## Getting Started
 
@@ -49,6 +49,8 @@ Please adhere to the following guidelines when contributing:
 ## Additional Resources
 
 - [Create Your Own Kernel In C#](https://www.codeproject.com/Articles/1225196/Create-Your-Own-Kernel-In-C-2) - This CodeProject article provides valuable insights into creating a kernel in C# and was our primary inspiration for this project. 
+- [Circle Bare Metal Project](https://github.com/rsta2/circle) - This project provided a really good inspiration for our project and allowed us to use several of their libraries to implement USB capability. 
+
 
 ## License
 
