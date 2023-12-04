@@ -1,6 +1,6 @@
 # Tic-Tac-Toe Kernel Conversion for Raspberry Pi 3
 
-This GitHub repository is dedicated to the conversion of a Tic-Tac-Toe kernel specifically for the Raspberry Pi 3 ARM architecture. 
+This GitHub repository is dedicated to the creation of a Tic-Tac-Toe kernel specifically for the Raspberry Pi 3 ARM architecture. 
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -11,7 +11,7 @@ This GitHub repository is dedicated to the conversion of a Tic-Tac-Toe kernel sp
 
 ## Introduction
 
-Tic-Tac-Toe is a classic game enjoyed by people of all ages. This project aims to adapt an existing Tic-Tac-Toe kernel to the ARM architecture, making it compatible with the Raspberry Pi 3, a popular single-board computer. 
+Tic-Tac-Toe is a classic game enjoyed by people of all ages. This project aims to adapt a bare-metal kernel to the ARM architecture, making it compatible with the Raspberry Pi 3, a popular single-board computer. 
 
 ## Project Goal
 
