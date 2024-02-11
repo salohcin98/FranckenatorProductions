@@ -1,6 +1,6 @@
 # Tic-Tac-Toe Kernel Conversion for Raspberry Pi 3
 
-This GitHub repository is dedicated to the creation of a Tic-Tac-Toe kernel specifically for the Raspberry Pi 3 ARM architecture. 
+This GitHub repository is dedicated to the creation of a Tic-Tac-Toe kernel specifically for the Raspberry Pi 3 ARM architecture. Specifically using the existing kernel structure from rsta2/circle.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -49,7 +49,7 @@ Please adhere to the following guidelines when contributing:
 ## Additional Resources
 
 - [Create Your Own Kernel In C#](https://www.codeproject.com/Articles/1225196/Create-Your-Own-Kernel-In-C-2) - This CodeProject article provides valuable insights into creating a kernel in C# and was our primary inspiration for this project. 
-- [Circle Bare Metal Project](https://github.com/rsta2/circle) - This project provided a really good inspiration for our project and allowed us to use several of their libraries to implement USB capability. 
+- [Circle Bare Metal Project](https://github.com/rsta2/circle) - Our project was built off using the kernel structure of this project and allowing us to use USB devices. 
 
 
 ## License
